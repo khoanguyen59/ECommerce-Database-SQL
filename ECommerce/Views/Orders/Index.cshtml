@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ECommerce.Models.Order>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Product Management</h2>
+
+<p>
+    @Html.ActionLink("Insert", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.order_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_customer_mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_shipvia)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_customer_mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_shipvia)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.order_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.order_id })
+            </td>
+        </tr>
+    }
+
+</table>
+

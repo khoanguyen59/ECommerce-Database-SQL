@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ECommerce.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Product Management</h2>
+@*<form asp-controller="Product" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>*@
+<p>
+    @Html.ActionLink("New Product", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.product_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_categoryid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_adder)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_categoryid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_adder)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.product_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.product_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.product_id })
+        </td>
+    </tr>
+    }
+
+</table>
+

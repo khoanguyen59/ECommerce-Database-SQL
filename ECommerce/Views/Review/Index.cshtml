@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ECommerce.Models.Review>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Review manage</h2>
+@*<form asp-controller="Product" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>*@
+<p>
+    @Html.ActionLink("New Review", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.review_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.review_rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.review_comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.review_picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.review_customer_mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.review_product_id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.review_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.review_rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.review_comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.review_picture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.review_customer_mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.review_product_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { num_no = item.review_no }) |
+            @Html.ActionLink("Details", "Details", new { num_no = item.review_no }) |
+            @Html.ActionLink("Delete", "Delete", new { num_no = item.review_no })
+        </td>
+    </tr>
+    }
+
+</table>
+
